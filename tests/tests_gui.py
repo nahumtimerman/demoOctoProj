@@ -3,7 +3,9 @@ from urlparse import urljoin
 
 from selenium import webdriver
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
+
+from teamcity import is_running_under_teamcity
+from teamcity.unittestpy import TeamcityTestRunner
 
 class AcmeAppTest(unittest.TestCase):
     def setUp(self):
@@ -45,5 +47,8 @@ class AcmeAppTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
-
+    if is_running_under_teamcity():
+        runner = TeamcityTestRunner()
+    else:
+        runner = unittest.TextTestRunner()
+    unittest.main(testRunner=runner)
