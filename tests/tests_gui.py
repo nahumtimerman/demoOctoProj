@@ -44,5 +44,6 @@ class AcmeAppTest(unittest.TestCase):
         self.assertTrue(set(received_errors).issubset(expected_errors))
 
 
-
+if __name__ == '__main__':
+    unittest.main()
 
