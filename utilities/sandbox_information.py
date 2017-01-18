@@ -4,11 +4,11 @@ from cloudshell.api.cloudshell_api import CloudShellAPISession
 
 
 def main(args):
-    if len(args) != 5: raise Exception('Check your arguments, something is wrong')
-    host = args[0]
-    user = args[1]
-    pwd = args[2]
-    sandbox_id = args[3]
+    if len(args) != 4: raise Exception('Check your arguments, something is wrong')
+    host = args[1]
+    user = args[2]
+    pwd = args[3]
+    # sandbox_id = args[4]
     api = CloudShellAPISession(host, username=user, password=pwd, domain='Global')
     sandbox = api.GetCurrentReservations().Reservations[0].Description
     # sandbox = api.GetReservationDetails(sandbox_id).ReservationDescription
