@@ -4,7 +4,7 @@ from cloudshell.api.cloudshell_api import CloudShellAPISession
 
 
 def main(args):
-    if len(args) != 4: raise Exception('Check your arguments, something is wrong')
+    if len(args) != 5: raise Exception('Check your arguments, something is wrong')
     host = args[0]
     user = args[1]
     pwd = args[2]
