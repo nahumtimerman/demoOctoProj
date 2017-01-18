@@ -1,16 +1,20 @@
 import unittest
 from urlparse import urljoin
 
+import sys
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 
 from teamcity import is_running_under_teamcity
 from teamcity.unittestpy import TeamcityTestRunner
 
+URL = 'http://localhost:56120'
+
+
 class AcmeAppTest(unittest.TestCase):
     def setUp(self):
         driver = webdriver.PhantomJS()
-        self.url = 'http://localhost:56120'
+        self.url = URL
         driver.get(self.url)
         driver.maximize_window()
         self.driver = driver
@@ -48,6 +52,7 @@ class AcmeAppTest(unittest.TestCase):
 
 if __name__ == '__main__':
     if is_running_under_teamcity():
+        URL = sys.argv[1]
         runner = TeamcityTestRunner()
     else:
         runner = unittest.TextTestRunner()
