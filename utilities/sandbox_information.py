@@ -10,7 +10,8 @@ def main(args):
     pwd = args[2]
     sandbox_id = args[3]
     api = CloudShellAPISession(host, username=user, password=pwd, domain='Global')
-    sandbox = api.GetReservationDetails(sandbox_id).ReservationDescription
+    sandbox = api.GetCurrentReservations().Reservations[0].Description
+    # sandbox = api.GetReservationDetails(sandbox_id).ReservationDescription
     webserver_params = (resource.VmDetails.VmCustomParams for resource in sandbox.Resources if 'webserv' in resource.Name).next()
     public_ip = (param.Value for param in webserver_params if param.Name == 'public_ip').next()
     return 'http://{0}:81/'.format(public_ip)
