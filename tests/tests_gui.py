@@ -53,6 +53,7 @@ class AcmeAppTest(unittest.TestCase):
 if __name__ == '__main__':
     if is_running_under_teamcity():
         URL = sys.argv[1]
+        del sys.argv[1:]
         runner = TeamcityTestRunner()
     else:
         runner = unittest.TextTestRunner()
