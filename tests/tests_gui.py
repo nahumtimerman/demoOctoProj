@@ -49,7 +49,7 @@ class AcmeAppTest(unittest.TestCase):
         expected_errors = ['the email field is required.', 'the password field is required.']
         received_errors = str(errors.text).lower().split('\n')
         self.assertTrue(set(received_errors).issubset(expected_errors))
-
+#printing screenshots
     def test_print_screen(self):
         driver = self.driver
         driver.get(self.url)
