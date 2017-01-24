@@ -55,7 +55,7 @@ class AcmeAppTest(unittest.TestCase):
         driver.get(self.url)
         if not os.path.exists('Images'):
             os.makedirs('Images')
-        driver.save_screenshot('.\Images\screenie.png')
+        driver.save_screenshot('./Images/screenie.png')
 
 
 
