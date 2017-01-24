@@ -49,6 +49,14 @@ class AcmeAppTest(unittest.TestCase):
         received_errors = str(errors.text).lower().split('\n')
         self.assertTrue(set(received_errors).issubset(expected_errors))
 
+    def test_print_screen(self):
+        driver = self.driver
+        driver.get(self.url)
+        driver.save_screenshot('screenie.png')
+        print "##teamcity[publishArtifacts 'screenie.png']"
+
+
+
 
 if __name__ == '__main__':
     if is_running_under_teamcity():
