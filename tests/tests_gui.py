@@ -2,6 +2,7 @@ import unittest
 from urlparse import urljoin
 
 import sys
+import os
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 
@@ -53,8 +54,10 @@ class AcmeAppTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.url)
         driver.save_screenshot('screenie.png')
-        print "##teamcity[publishArtifacts 'screenie.png']"
-
+        path = os.path.join(os.getcwd(),'screenie.png')
+        print "##teamcity[publishArtifacts '.\screenie.png']"
+        print "##teamcity[publishArtifacts './screenie.png']"
+        print "##teamcity[publishArtifacts '" + path + "'"
 
 
 
