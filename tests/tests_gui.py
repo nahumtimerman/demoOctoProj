@@ -55,9 +55,7 @@ class AcmeAppTest(unittest.TestCase):
         driver.get(self.url)
         driver.save_screenshot('screenie.png')
         path = os.path.join(os.getcwd(),'screenie.png')
-        print "##teamcity[publishArtifacts '.\screenie.png']"
-        print "##teamcity[publishArtifacts './screenie.png']"
-        print "##teamcity[publishArtifacts '" + path + "'"
+        print "##teamcity[publishArtifacts '" + path + "]'"
 
 
 
