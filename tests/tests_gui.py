@@ -53,10 +53,9 @@ class AcmeAppTest(unittest.TestCase):
     def test_print_screen(self):
         driver = self.driver
         driver.get(self.url)
-        driver.save_screenshot('screenie.png')
-        path = os.path.join(os.getcwd(),'screenie.png')
-        print "##teamcity[publishArtifacts '" + path + "]'"
-        print "##teamcity[publishArtifacts '" + path + "]''"
+        if not os.path.exists('Images'):
+            os.makedirs('Images')
+        driver.save_screenshot('.\Images\screenie.png')
 
 
 
