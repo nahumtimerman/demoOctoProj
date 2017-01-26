@@ -29,6 +29,9 @@ class AcmeAppTest(unittest.TestCase):
         ActionChains(driver).move_to_element(about_link).perform()
         about_link.click()
         self.assertEqual(driver.title, 'About - My ASP.NET Application')
+        self.assertEqual(driver.title, 'About2 - My ASP.NET Application')
+
+
 
     def test_contact_page(self):
         driver = self.driver
